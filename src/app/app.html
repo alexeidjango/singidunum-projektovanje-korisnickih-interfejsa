@@ -1,2 +1,56 @@
-<h1>main app</h1>
-<router-outlet />
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom mb-3">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">Prodavnica igračaka</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#nav" aria-label="Meni">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Katalog</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav">
+        @if (isLoggedIn()) {
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/korpa">
+              <i class="fa-solid fa-cart-shopping"></i> Korpa
+              <span class="badge text-bg-primary">{{ cartCount() }}</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+              <i class="fa-solid fa-user"></i> {{ username() }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" routerLink="/profil">Moj profil</a></li>
+              <li><a class="dropdown-item" routerLink="/korpa">Korpa rezervacija</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><button class="dropdown-item" (click)="logout()">Odjava</button></li>
+            </ul>
+          </li>
+        } @else {
+          <li class="nav-item">
+            <button class="nav-link" (click)="modal.openLogin()">
+              <i class="fa-solid fa-cart-shopping"></i> Korpa
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-primary" (click)="modal.openLogin()">Prijava</button>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container pb-4">
+  <router-outlet />
+</div>
+
+<app-login-modal />
+<app-register-modal />
