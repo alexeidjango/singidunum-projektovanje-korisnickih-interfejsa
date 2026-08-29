@@ -1,1 +1,30 @@
-<p>login-modal works!</p>
+@if (modal.login()) {
+  <div class="modal d-block" tabindex="-1" style="background: rgba(0,0,0,.5)">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Prijava</h5>
+          <button type="button" class="btn-close" (click)="modal.close()"></button>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Korisničko ime</label>
+              <input class="form-control" formControlName="username">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Lozinka</label>
+              <input type="password" class="form-control" formControlName="password">
+            </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-link" (click)="modal.openRegister()">
+              Nemate nalog? Registrujte se
+            </button>
+            <button type="submit" class="btn btn-primary">Prijavi se</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+}

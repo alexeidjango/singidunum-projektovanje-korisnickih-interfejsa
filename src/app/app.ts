@@ -33,7 +33,8 @@ export class App {
   protected logout(): void {
     this.utils.confirm('Odjaviti se?', () => {
       AuthService.logout();
-      this.router.navigateByUrl('/');
+      console.log("Logged out");
+      this.router.navigateByUrl('/'); // TODO: fix actual state change after logout
     });
   }
 }
