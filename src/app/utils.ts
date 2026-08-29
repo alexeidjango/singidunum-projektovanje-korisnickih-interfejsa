@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2';
+import { ToyType, ToyTypeEnum } from '../models/toy.model';
 
 @Injectable({ providedIn: 'root' })
 export class Utils {
@@ -22,4 +23,13 @@ export class Utils {
       if (result.isConfirmed) onYes();
     });
   }
+
+  toyTypeOptions: { value: ToyTypeEnum; label: string }[] = [
+    { value: ToyTypeEnum.SLAGALICA, label: 'Slagalice' },
+    { value: ToyTypeEnum.SLIKOVNICA, label: 'Slikovnice' },
+    { value: ToyTypeEnum.FIGURA, label: 'Figure' },
+    { value: ToyTypeEnum.EDUKATIVNA, label: 'Edukativne' },
+    { value: ToyTypeEnum.DRUSTVENA_IGRA, label: 'Društvene igre' },
+    { value: ToyTypeEnum.KONSTRUKCIJA, label: 'Konstrukcije' },
+  ];
 }

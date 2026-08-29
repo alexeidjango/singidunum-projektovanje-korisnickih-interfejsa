@@ -10,4 +10,4 @@ export enum ToyTypeEnum {
   OSTALO = "ostalo",
 }
 
-export type ToyType = keyof ToyTypeEnum;
+export type ToyType = ToyTypeEnum;
