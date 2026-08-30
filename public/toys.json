@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "name": "Drvena slagalica „Životinje\"",
+    "description": "Drvena slagalica sa 12 delova u obliku šumskih životinja. Razvija finu motoriku.",
+    "type": "slagalica",
+    "ageGroup": "3-6",
+    "targetGroup": "svi",
+    "productionDate": "2025-03-12",
+    "price": 1290,
+    "imageUrl": "/img/pki-slagalica-zivotinje.jpg",
+    "reviews": [
+      {
+        "author": "Marija J.",
+        "rating": 5,
+        "comment": "Ćerka je oduševljena, delovi su čvrsti.",
+        "createdAt": "2025-06-18T10:00:00Z"
+      },
+      {
+        "author": "Luka",
+        "rating": 4,
+        "comment": "Zabavna je, ali sam je brzo završio.",
+        "createdAt": "2025-07-02T10:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Slikovnica „Prva čitanka\"",
+    "description": "Ilustrovana slikovnica sa kratkim pričama i velikim slovima za početno čitanje.",
+    "type": "slikovnica",
+    "ageGroup": "1-3",
+    "targetGroup": "svi",
+    "productionDate": "2025-01-05",
+    "price": 890,
+    "imageUrl": "/img/pki-prva-citanka.jpg",
+    "reviews": [
+      {
+        "author": "Sanja P.",
+        "rating": 5,
+        "comment": "Predivne ilustracije.",
+        "createdAt": "2025-05-11T10:00:00Z"
+      },
+      {
+        "author": "Nikola",
+        "rating": 5,
+        "comment": "Volim slike aviona!",
+        "createdAt": "2025-05-20T10:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Figura „Kapetan Zvezda\"",
+    "description": "Akciona figura superheroja visine 20 cm sa pokretnim zglobovima.",
+    "type": "figura",
+    "ageGroup": "6-9",
+    "targetGroup": "decak",
+    "productionDate": "2024-11-20",
+    "price": 1750,
+    "imageUrl": "/img/pki-figura-kapetan-zvezda.jpg",
+    "reviews": [
+      {
+        "author": "Petar M.",
+        "rating": 3,
+        "comment": "Boja se malo oljuštila posle mesec dana.",
+        "createdAt": "2025-01-15T10:00:00Z"
+      },
+      {
+        "author": "Stefan",
+        "rating": 4,
+        "comment": "Kul je, ali ruka lako ispada.",
+        "createdAt": "2025-02-01T10:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Plišani meda „Bibi\"",
+    "description": "Mekani plišani meda, 30 cm, perivi na 30°C. Bez sitnih delova.",
+    "type": "plisana-igracka",
+    "ageGroup": "0-1",
+    "targetGroup": "svi",
+    "productionDate": "2025-02-01",
+    "price": 1490,
+    "imageUrl": "/img/pki-meda-bibi.jpeg",
+    "reviews": [
+      {
+        "author": "Jelena K.",
+        "rating": 5,
+        "comment": "Beba ne spava bez njega.",
+        "createdAt": "2025-04-03T10:00:00Z"
+      },
+      {
+        "author": "Ana R.",
+        "rating": 4,
+        "comment": "Mekan, ali dlačice se malo linjaju.",
+        "createdAt": "2025-04-22T10:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Edukativni set „Mali naučnik\"",
+    "description": "Set za 15 bezbednih hemijskih eksperimenata sa uputstvom i priborom.",
+    "type": "edukativna",
+    "ageGroup": "9-12",
+    "targetGroup": "svi",
+    "productionDate": "2025-04-18",
+    "price": 2990,
+    "imageUrl": "/img/pki-mali-naucnik.jpg",
+    "reviews": [
+      {
+        "author": "Ivan T.",
+        "rating": 5,
+        "comment": "Sin je zalepljen za sto, super stvar.",
+        "createdAt": "2025-06-10T10:00:00Z"
+      },
+      {
+        "author": "Milica",
+        "rating": 4,
+        "comment": "Zabavno, ali neki eksperimenti traže pomoć.",
+        "createdAt": "2025-06-25T10:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Društvena igra „Trka kroz svemir\"",
+    "description": "Društvena igra za 2–4 igrača, partija traje oko 30 minuta.",
+    "type": "drustvena-igra",
+    "ageGroup": "6-9",
+    "targetGroup": "svi",
+    "productionDate": "2024-09-30",
+    "price": 2190,
+    "imageUrl": "/img/pki-trka-kroz-svemir.jpg",
+    "reviews": [
+      {
+        "author": "Porodica Kovač",
+        "rating": 5,
+        "comment": "Igramo je svako veče.",
+        "createdAt": "2024-12-27T10:00:00Z"
+      },
+      {
+        "author": "Đorđe",
+        "rating": 4,
+        "comment": "Zabavna, malo dugačka za mlađe.",
+        "createdAt": "2025-01-05T10:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Kocke „Grad\"",
+    "description": "250 kompatibilnih plastičnih kocki za gradnju, sa uputstvom za 3 modela.",
+    "type": "konstrukcija",
+    "ageGroup": "3-6",
+    "targetGroup": "svi",
+    "productionDate": "2025-05-10",
+    "price": 3490,
+    "imageUrl": "/img/pki-kocke-grad.jpg",
+    "reviews": [
+      {
+        "author": "Marko V.",
+        "rating": 5,
+        "comment": "Kvalitet kao skuplji brendovi.",
+        "createdAt": "2025-07-12T10:00:00Z"
+      },
+      {
+        "author": "Teodora",
+        "rating": 5,
+        "comment": "Napravila sam ceo grad!",
+        "createdAt": "2025-07-19T10:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Lutka „Mila\"",
+    "description": "Lutka visine 35 cm sa dva kompleta odeće i češljem.",
+    "type": "figura",
+    "ageGroup": "3-6",
+    "targetGroup": "devojcica",
+    "productionDate": "2024-12-15",
+    "price": 1690,
+    "imageUrl": "/img/pki-lutka-mila.jpg",
+    "reviews": [
+      {
+        "author": "Dragana S.",
+        "rating": 4,
+        "comment": "Lepa, kosa se lako zamrsi.",
+        "createdAt": "2025-02-20T10:00:00Z"
+      },
+      {
+        "author": "Sara",
+        "rating": 5,
+        "comment": "Najlepša lutka!",
+        "createdAt": "2025-03-01T10:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Puzzle 100 delova „Mapa sveta\"",
+    "description": "Slagalica od 100 delova sa ilustrovanom mapom sveta, dimenzije 50×70 cm.",
+    "type": "slagalica",
+    "ageGroup": "6-9",
+    "targetGroup": "svi",
+    "productionDate": "2025-03-22",
+    "price": 990,
+    "imageUrl": "/img/pki-puzzle-mapa-sveta.webp",
+    "reviews": [
+      {
+        "author": "Bojan I.",
+        "rating": 4,
+        "comment": "Delovi lepo naležu.",
+        "createdAt": "2025-05-30T10:00:00Z"
+      },
+      {
+        "author": "Lena",
+        "rating": 4,
+        "comment": "Naučila sam gde je Australija.",
+        "createdAt": "2025-06-08T10:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Slikovnica „Bajke sa sela\"",
+    "description": "Zbirka od pet ilustrovanih narodnih bajki, tvrde korice.",
+    "type": "slikovnica",
+    "ageGroup": "3-6",
+    "targetGroup": "svi",
+    "productionDate": "2024-10-08",
+    "price": 950,
+    "imageUrl": "/img/pki-bajke-sa-sela.avif",
+    "reviews": [
+      {
+        "author": "Vesna M.",
+        "rating": 5,
+        "comment": "Klasik, čitali smo i mi kao deca.",
+        "createdAt": "2025-01-11T10:00:00Z"
+      },
+      {
+        "author": "Filip",
+        "rating": 3,
+        "comment": "Kratke su priče.",
+        "createdAt": "2025-01-19T10:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Karakter figura „Robot Iks\"",
+    "description": "Figura robota sa LED očima i zvučnim efektima, na baterije (uključene).",
+    "type": "karakter",
+    "ageGroup": "6-9",
+    "targetGroup": "decak",
+    "productionDate": "2025-06-01",
+    "price": 1890,
+    "imageUrl": "/img/pki-robot-iks.jpeg",
+    "reviews": [
+      {
+        "author": "Aleksandar P.",
+        "rating": 4,
+        "comment": "Zvuk je glasan, srećom ima prekidač.",
+        "createdAt": "2025-07-25T10:00:00Z"
+      },
+      {
+        "author": "Vuk",
+        "rating": 5,
+        "comment": "Oči mu svetle, mnogo je kul.",
+        "createdAt": "2025-08-01T10:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Muzička kutija „Zvezdano nebo\"",
+    "description": "Muzička kutija koja projektuje zvezde na plafon i svira uspavanke.",
+    "type": "ostalo",
+    "ageGroup": "0-1",
+    "targetGroup": "devojcica",
+    "productionDate": "2025-01-28",
+    "price": 2290,
+    "imageUrl": "/img/pki-zvezdano-nebo.webp",
+    "reviews": [
+      {
+        "author": "Milena J.",
+        "rating": 5,
+        "comment": "Beba se smiri za par minuta.",
+        "createdAt": "2025-03-14T10:00:00Z"
+      },
+      {
+        "author": "Tijana R.",
+        "rating": 4,
+        "comment": "Lepa projekcija, melodija malo kratka.",
+        "createdAt": "2025-03-28T10:00:00Z"
+      }
+    ]
+  }
+]
