@@ -38,8 +38,12 @@ export class CartService {
   }
 
   static isAlreadyReservedForActiveUser(toyId: number): boolean {
-    const existingToy = this.list().find((x) => x.toyId == toyId);
-    return !!existingToy;
+    try {
+      const existingToy = this.list().find((x) => x.toyId == toyId);
+      return !!existingToy;
+    } catch (e) {
+      return false;
+    }
   }
 
   static updateToy(id: number, patch: Partial<ToyModel>): void {

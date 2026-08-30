@@ -6,6 +6,7 @@ import { AuthService } from '../../services/auth.service';
 import { Utils } from '../utils';
 import { ModalService } from '../../services/modal.service';
 import { ToyQuery, ToyService } from '../../services/toy.service';
+import { UserModel } from '../../models/user.model';
 
 @Component({
   selector: 'app-catalog',
@@ -55,16 +56,19 @@ export class Catalog {
       priceTo: this.fPriceTo,
       minRating: this.fMinRating,
     };
-    const reservedToys = AuthService.getActiveUser().reservations.map(
-      (reservation) => reservation.toyId,
-    );
+    let reservedToys: number[] = [];
+    try {
+      reservedToys = AuthService.getActiveUser().reservations.map(
+        (reservation) => reservation.toyId,
+      );
+    } catch (e) {}
+
     const filteredOut: ToyModelWithReservation[] = this.sortList(ToyService.search(query)).map(
       (toy: ToyModelWithReservation) => ({
         ...toy,
         isAlreadyReserved: reservedToys.includes(toy.id),
       }),
     );
-
     this.filteredOut.set(filteredOut);
   }
 

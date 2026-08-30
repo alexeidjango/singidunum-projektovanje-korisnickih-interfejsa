@@ -14,9 +14,13 @@ export interface ToyQuery {
 }
 
 export class ToyService {
-  private static LOCAL_STORAGE_KEY = 'ts_toys';
+  private static LOCAL_STORAGE_KEY = 'ls_toys';
 
   static async fetchToys() {
+    const toys = JSON.parse(localStorage.getItem(ToyService.LOCAL_STORAGE_KEY) || '[]');
+    if (toys && toys.length > 0) {
+      return;
+    }
     try {
       await axios.get('/toys.json').then((response) => {
         localStorage.setItem(ToyService.LOCAL_STORAGE_KEY, JSON.stringify(response.data));
