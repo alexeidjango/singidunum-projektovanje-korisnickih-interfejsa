@@ -5,6 +5,7 @@ import { Utils } from './utils';
 import { ModalService } from '../services/modal.service';
 import { LoginModal } from './login-modal/login-modal';
 import { RegisterModal } from './register-modal/register-modal';
+import { CartService } from '../services/cart.service';
 
 @Component({
   imports: [RouterOutlet, RouterLink, LoginModal, RegisterModal],
@@ -27,13 +28,17 @@ export class App {
   }
 
   protected cartCount(): number {
-    return 88; // TODO: fix this!
+    try {
+      return CartService.list().filter((r) => r.status !== 'otkazano').length;
+    } catch {
+      return 0;
+    }
   }
 
   protected logout(): void {
     this.utils.confirm('Odjaviti se?', () => {
       AuthService.logout();
-      console.log("Logged out");
+      console.log('Logged out');
       this.router.navigateByUrl('/'); // TODO: fix actual state change after logout
     });
   }

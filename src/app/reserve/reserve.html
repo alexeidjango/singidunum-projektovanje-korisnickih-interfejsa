@@ -1,0 +1,25 @@
+@if (toy(); as t) {
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Katalog</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="['/igracka', t.id]">Detalji</a></li>
+      <li class="breadcrumb-item active">Rezervacija</li>
+    </ol>
+  </nav>
+
+  <div class="card mx-auto" style="max-width: 540px;">
+    <div class="card-header"><h5 class="mb-0">Rezervacija igračke</h5></div>
+    <div class="card-body">
+      <ul class="list-group mb-3">
+        <li class="list-group-item"><strong>Naziv:</strong> {{ t.name }}</li>
+        <li class="list-group-item"><strong>Tip:</strong> {{ utils.typeLabel(t.type) }}</li>
+        <li class="list-group-item"><strong>Datum proizvodnje:</strong> {{ utils.formatDate(t.productionDate) }}</li>
+        <li class="list-group-item"><strong>Cena:</strong> {{ utils.rsd(t.price) }}</li>
+      </ul>
+      <div class="d-flex gap-2">
+        <button class="btn btn-primary" (click)="confirm()">Potvrdi rezervaciju</button>
+        <a [routerLink]="['/igracka', t.id]" class="btn btn-outline-secondary">Odustani</a>
+      </div>
+    </div>
+  </div>
+}

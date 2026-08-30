@@ -1,0 +1,64 @@
+@if (form; as f) {
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/korpa">Korpa</a></li>
+      <li class="breadcrumb-item active">Izmena</li>
+    </ol>
+  </nav>
+
+  <div class="card mx-auto" style="max-width: 640px;">
+    <div class="card-header"><h5 class="mb-0">Izmena rezervacije</h5></div>
+    <div class="card-body">
+      <form [formGroup]="f" (ngSubmit)="save()" novalidate>
+        <div class="row g-3">
+          <div class="col-md-8">
+            <label class="form-label">Naziv</label>
+            <input class="form-control" formControlName="name">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Cena (RSD)</label>
+            <input type="number" class="form-control" formControlName="price">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Opis</label>
+            <textarea class="form-control" rows="2" formControlName="description"></textarea>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Tip</label>
+            <select class="form-select" formControlName="type">
+              <option value="slagalica">Slagalica</option>
+              <option value="slikovnica">Slikovnica</option>
+              <option value="figura">Figura</option>
+              <option value="karakter">Karakter</option>
+              <option value="edukativna">Edukativna</option>
+              <option value="drustvena-igra">Društvena igra</option>
+              <option value="plisana-igracka">Plišana igračka</option>
+              <option value="konstrukcija">Konstrukcija</option>
+              <option value="ostalo">Ostalo</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Uzrast</label>
+            <input class="form-control" formControlName="ageGroup">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Ciljna grupa</label>
+            <select class="form-select" formControlName="targetGroup">
+              <option value="svi">Svi</option>
+              <option value="devojcica">Devojčica</option>
+              <option value="decak">Dečak</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Datum proizvodnje</label>
+            <input type="date" class="form-control" formControlName="productionDate">
+          </div>
+        </div>
+        <div class="mt-3 d-flex gap-2">
+          <button type="submit" class="btn btn-primary">Sačuvaj izmene</button>
+          <a routerLink="/korpa" class="btn btn-outline-secondary">Otkaži</a>
+        </div>
+      </form>
+    </div>
+  </div>
+}

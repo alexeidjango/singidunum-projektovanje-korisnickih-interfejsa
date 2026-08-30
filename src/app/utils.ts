@@ -83,4 +83,12 @@ export class Utils {
   typeLabel(t: ToyType): string {
     return this.toyTypeLabelsSingle[t];
   }
+
+  statusBadge(s: string): string {
+    return s === 'rezervisano'
+      ? 'text-bg-secondary'
+      : s === 'pristiglo'
+        ? 'text-bg-success'
+        : 'text-bg-danger';
+  }
 }

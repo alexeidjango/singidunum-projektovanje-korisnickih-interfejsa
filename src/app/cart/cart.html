@@ -1,0 +1,49 @@
+<h1 class="h3 mb-4">Korpa rezervacija</h1>
+
+@if (rows().length > 0) {
+  <div class="table-responsive">
+    <table class="table align-middle">
+      <thead>
+      <tr>
+        <th>Naziv</th><th>Tip</th><th>Datum proizvodnje</th>
+        <th>Status</th><th class="text-end">Cena</th><th class="text-end">Akcije</th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (r of rows(); track r.id) {
+          <tr>
+            <td><a [routerLink]="['/igracka', r.toy.id]">{{ r.toy.name }}</a></td>
+            <td>{{ utils.typeLabel(r.toy.type) }}</td>
+            <td>{{ utils.formatDate(r.toy.productionDate) }}</td>
+            <td><span class="badge" [class]="utils.statusBadge(r.status)">{{ r.status }}</span></td>
+            <td class="text-end">{{ utils.rsd(r.toy.price) }}</td>
+            <td class="text-end">
+              @if (r.status === 'rezervisano') {
+                <button class="btn btn-sm btn-outline-primary" (click)="edit(r)">Izmeni</button>
+                <button class="btn btn-sm btn-outline-secondary" (click)="deliver(r)">Simuliraj isporuku</button>
+              } @else if (r.status === 'pristiglo') {
+                <button class="btn btn-sm btn-outline-warning" (click)="rate(r)" [disabled]="r.reviewed">Oceni</button>
+                <button class="btn btn-sm btn-outline-danger" (click)="remove(r)">Obriši</button>
+              } @else {
+                <span class="text-muted">—</span>
+              }
+            </td>
+          </tr>
+        }
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="4"></td>
+        <td class="text-end fw-bold">Ukupno:</td>
+        <td class="text-end fw-bold">{{ utils.rsd(total()) }}</td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+  <p class="small text-muted">Ukupna cena ne uključuje otkazane rezervacije.</p>
+} @else {
+  <div class="text-center text-muted py-5">
+    <p>Vaša korpa je prazna.</p>
+    <a routerLink="/" class="btn btn-outline-primary btn-sm">Pogledaj katalog</a>
+  </div>
+}

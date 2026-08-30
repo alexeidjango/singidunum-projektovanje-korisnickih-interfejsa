@@ -96,7 +96,7 @@
         <div class="col">
           <div class="card h-100">
             @if (toy.imageUrl) {
-              <img [src]="toy.imageUrl" [alt]="toy.name" class="card-img-top">
+              <a [routerLink]="['/igracka', toy.id]"><img [src]="toy.imageUrl" [alt]="toy.name" class="card-img-top"></a>
             } @else {
               <div class="toy-img">slika igračke</div>
             }
