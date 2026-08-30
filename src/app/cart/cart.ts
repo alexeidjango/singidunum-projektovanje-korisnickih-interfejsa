@@ -37,10 +37,6 @@ export class Cart {
     return CartService.total();
   }
 
-  protected edit(r: ReservationModel): void {
-    this.router.navigate(['/korpa/izmena', r.id]);
-  }
-
   protected rate(r: ReservationModel): void {
     this.router.navigate(['/korpa/ocena', r.id]);
   }

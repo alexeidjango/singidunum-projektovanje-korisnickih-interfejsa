@@ -17,16 +17,15 @@
             <td>{{ utils.formatDate(r.toy.productionDate) }}</td>
             <td><span class="badge" [class]="utils.statusBadge(r.status)">{{ r.status }}</span></td>
             <td class="text-end">{{ utils.rsd(r.toy.price) }}</td>
-            <td class="text-end">
+            <td class="text-end d-flex gap-1 justify-content-end">
               @if (r.status === 'rezervisano') {
-                <button class="btn btn-sm btn-outline-primary" (click)="edit(r)">Izmeni</button>
                 <button class="btn btn-sm btn-outline-secondary" (click)="deliver(r)">Simuliraj isporuku</button>
               } @else if (r.status === 'pristiglo') {
                 <button class="btn btn-sm btn-outline-warning" (click)="rate(r)" [disabled]="r.reviewed">Oceni</button>
-                <button class="btn btn-sm btn-outline-danger" (click)="remove(r)">Obriši</button>
               } @else {
                 <span class="text-muted">—</span>
               }
+              <button class="btn btn-sm btn-outline-danger" (click)="remove(r)">Obriši</button>
             </td>
           </tr>
         }

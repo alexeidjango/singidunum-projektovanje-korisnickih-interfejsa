@@ -65,9 +65,10 @@ export class CartService {
   }
 
   static remove(id: number): void {
+    console.log('Removing', id);
     this.mutate((reservations) => {
       const i = reservations.findIndex((r) => r.id === Number(id));
-      if (i > -1 && reservations[i].status === 'pristiglo') {
+      if (i > -1) {
         reservations.splice(i, 1);
       }
     });
