@@ -38,3 +38,7 @@ export interface ToyModel {
   imageUrl: string;
   reviews: ReviewModel[];
 }
+
+export interface ToyModelWithReservation extends ToyModel {
+  isAlreadyReserved?: boolean;
+}

@@ -15,6 +15,7 @@ import { CartService } from '../../services/cart.service';
 })
 export class Details {
   protected toy = signal<ToyModel | null>(null);
+  protected alreadyReserved = signal<boolean>(true);
   protected reviewableReservationId: number | null = null;
 
   constructor(
@@ -27,6 +28,7 @@ export class Details {
       try {
         const toy = ToyService.getToyById(params.id);
         this.toy.set(toy);
+        this.alreadyReserved.set(CartService.isAlreadyReservedForActiveUser(params.id));
         this.computeReviewable(toy.id);
       } catch {
         console.error('toy not found');

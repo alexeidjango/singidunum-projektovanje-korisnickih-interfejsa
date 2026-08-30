@@ -37,6 +37,11 @@ export class CartService {
     return r;
   }
 
+  static isAlreadyReservedForActiveUser(toyId: number): boolean {
+    const existingToy = this.list().find((x) => x.toyId == toyId);
+    return !!existingToy;
+  }
+
   static updateToy(id: number, patch: Partial<ToyModel>): void {
     this.mutate((reservations) => {
       reservations.forEach((r) => {

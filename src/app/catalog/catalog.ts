@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { ToyModel } from '../../models/toy.model';
+import { ToyModel, ToyModelWithReservation } from '../../models/toy.model';
 import { AuthService } from '../../services/auth.service';
 import { Utils } from '../utils';
 import { ModalService } from '../../services/modal.service';
@@ -15,7 +15,7 @@ import { ToyQuery, ToyService } from '../../services/toy.service';
 })
 export class Catalog {
   protected all = signal<ToyModel[]>([]);
-  protected filteredOut = signal<ToyModel[]>([]);
+  protected filteredOut = signal<ToyModelWithReservation[]>([]);
 
   // filter fields, bound with [(ngModel)] in the template
   protected fText = '';
@@ -55,7 +55,17 @@ export class Catalog {
       priceTo: this.fPriceTo,
       minRating: this.fMinRating,
     };
-    this.filteredOut.set(this.sortList(ToyService.search(query)));
+    const reservedToys = AuthService.getActiveUser().reservations.map(
+      (reservation) => reservation.toyId,
+    );
+    const filteredOut: ToyModelWithReservation[] = this.sortList(ToyService.search(query)).map(
+      (toy: ToyModelWithReservation) => ({
+        ...toy,
+        isAlreadyReserved: reservedToys.includes(toy.id),
+      }),
+    );
+
+    this.filteredOut.set(filteredOut);
   }
 
   protected reset(): void {
