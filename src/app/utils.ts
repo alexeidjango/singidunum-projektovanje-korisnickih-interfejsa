@@ -24,6 +24,18 @@ export class Utils {
     });
   }
 
+  private toyTypeLabels: Record<ToyTypeEnum, string> = {
+    [ToyTypeEnum.SLAGALICA]: 'Slagalice',
+    [ToyTypeEnum.SLIKOVNICA]: 'Slikovnice',
+    [ToyTypeEnum.FIGURA]: 'Figure',
+    [ToyTypeEnum.EDUKATIVNA]: 'Edukativne',
+    [ToyTypeEnum.DRUSTVENA_IGRA]: 'Društvene igre',
+    [ToyTypeEnum.KONSTRUKCIJA]: 'Konstrukcije',
+    [ToyTypeEnum.PLISANA_IGRACKA]: 'Plisana Igracka',
+    [ToyTypeEnum.KARAKTER]: 'Karakter',
+    [ToyTypeEnum.OSTALO]: 'Ostalo',
+  };
+
   private toyTypeOptions: { value: ToyTypeEnum; label: string }[] = [
     { value: ToyTypeEnum.SLAGALICA, label: 'Slagalice' },
     { value: ToyTypeEnum.SLIKOVNICA, label: 'Slikovnice' },
@@ -33,7 +45,23 @@ export class Utils {
     { value: ToyTypeEnum.KONSTRUKCIJA, label: 'Konstrukcije' },
   ];
 
-  getToyTypeOptions() {
-    return this.toyTypeOptions;
+  getToyTypeOptions(): { value: ToyTypeEnum; label: string }[] {
+    return Object.keys(this.toyTypeLabels).map((key: string) => ({
+      value: key as ToyTypeEnum,
+      label: this.toyTypeLabels[key as ToyTypeEnum],
+    }));
+  }
+
+  toyTypeLabel(toyType: ToyTypeEnum) {
+    return this.toyTypeLabels[toyType];
+  }
+
+  rsd(price: number): string {
+    return price.toLocaleString('sr-RS') + ' RSD';
+  }
+
+  stars(rating: number): string {
+    const n = Math.round(rating);
+    return '★★★★★☆☆☆☆☆'.slice(5 - n, 10 - n);
   }
 }

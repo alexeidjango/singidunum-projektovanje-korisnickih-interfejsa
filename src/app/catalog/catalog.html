@@ -1,1 +1,127 @@
-<p>catalog works!</p>
+<h1 class="h3 mb-4">Katalog igračaka</h1>
+
+<div class="row g-4">
+  <aside class="col-lg-3">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="h6 text-uppercase text-muted mb-3">Pretraga</h2>
+
+        <input class="form-control mb-3" placeholder="Brza pretraga…"
+               [(ngModel)]="fText" (input)="apply()">
+        <label class="form-label mb-1">Tip</label>
+        <select class="form-select form-select-sm mb-2" [(ngModel)]="fType" (change)="apply()">
+          <option value="all">Svi tipovi</option>
+          <option value="slagalica">Slagalica</option>
+          <option value="slikovnica">Slikovnica</option>
+          <option value="figura">Figura</option>
+          <option value="karakter">Karakter</option>
+          <option value="edukativna">Edukativna</option>
+          <option value="drustvena-igra">Društvena igra</option>
+          <option value="plisana-igracka">Plišana igračka</option>
+          <option value="konstrukcija">Konstrukcija</option>
+          <option value="ostalo">Ostalo</option>
+        </select>
+
+        <label class="form-label mb-1">Uzrast</label>
+        <select class="form-select form-select-sm mb-2" [(ngModel)]="fAgeGroup" (change)="apply()">
+          <option value="all">Svi uzrasti</option>
+          @for (g of ageGroups(); track g) {
+            <option [value]="g">{{ g }}</option>
+          }
+        </select>
+
+        <label class="form-label mb-1 d-block">Ciljna grupa</label>
+        <div class="mb-2">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="tg" value="all"
+                   [(ngModel)]="fTargetGroup" (change)="apply()" id="tg-all">
+            <label class="form-check-label" for="tg-all">Svi</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="tg" value="devojcica"
+                   [(ngModel)]="fTargetGroup" (change)="apply()" id="tg-dev">
+            <label class="form-check-label" for="tg-dev">Devojčica</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="tg" value="decak"
+                   [(ngModel)]="fTargetGroup" (change)="apply()" id="tg-dec">
+            <label class="form-check-label" for="tg-dec">Dečak</label>
+          </div>
+        </div>
+
+        <label class="form-label mb-1">Datum proizvodnje</label>
+        <div class="input-group input-group-sm mb-2">
+          <span class="input-group-text">od</span>
+          <input type="date" class="form-control" [(ngModel)]="fDateFrom" (change)="apply()">
+          <span class="input-group-text">do</span>
+          <input type="date" class="form-control" [(ngModel)]="fDateTo" (change)="apply()">
+        </div>
+
+        <label class="form-label mb-1">Cena (RSD)</label>
+        <div class="input-group input-group-sm mb-2">
+          <span class="input-group-text">od</span>
+          <input type="number" class="form-control" [(ngModel)]="fPriceFrom" (input)="apply()">
+          <span class="input-group-text">do</span>
+          <input type="number" class="form-control" [(ngModel)]="fPriceTo" (input)="apply()">
+        </div>
+
+        <label class="form-label mb-1">Minimalna ocena</label>
+        <select class="form-select form-select-sm mb-3" [(ngModel)]="fMinRating" (change)="apply()">
+          <option [ngValue]="null">Bilo koja</option>
+          <option [ngValue]="1">1+</option>
+          <option [ngValue]="2">2+</option>
+          <option [ngValue]="3">3+</option>
+          <option [ngValue]="4">4+</option>
+          <option [ngValue]="5">5</option>
+        </select>
+
+        <button class="btn btn-outline-secondary btn-sm w-100" (click)="reset()">Poništi filtere</button>
+      </div>
+    </div>
+  </aside>
+
+  <section class="col-lg-9">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <span class="text-muted">{{ filteredOut().length }} od {{ all().length }} igračaka</span>
+      <select class="form-select form-select-sm w-auto" [(ngModel)]="sortBy" (change)="apply()">
+        <option value="new">Najnovije</option>
+        <option value="price-asc">Cena: rastuće</option>
+        <option value="price-desc">Cena: opadajuće</option>
+        <option value="rating">Ocena</option>
+      </select>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-3">
+      @for (toy of filteredOut(); track toy.id) {
+        <div class="col">
+          <div class="card h-100">
+            @if (toy.imageUrl) {
+              <img [src]="toy.imageUrl" [alt]="toy.name" class="card-img-top">
+            } @else {
+              <div class="toy-img">slika igračke</div>
+            }
+            <div class="card-body">
+              <h3 class="h6 mb-1">{{ toy.name }}</h3>
+              <span class="badge text-bg-secondary mb-2">{{ utils.toyTypeLabel(toy.type) }}</span>
+              <p class="small text-muted mb-1">Uzrast: {{ toy.ageGroup }}</p>
+              <p class="mb-1">
+                <span class="text-warning">{{ utils.stars(avg(toy)) }}</span>
+                <span class="small text-muted">({{ count(toy) }})</span>
+              </p>
+              <p class="fw-bold mb-0">{{ utils.rsd(toy.price) }}</p>
+            </div>
+            <div class="card-footer bg-transparent d-flex gap-2">
+              <a [routerLink]="['/igracka', toy.id]" class="btn btn-outline-primary btn-sm w-100">Detalji</a>
+              <button class="btn btn-primary btn-sm w-100" (click)="reserve(toy)">Rezerviši</button>
+            </div>
+          </div>
+        </div>
+      } @empty {
+        <div class="col-12 text-center text-muted py-5">
+          <p>Nema igračaka koje odgovaraju pretrazi.</p>
+          <button class="btn btn-outline-primary btn-sm" (click)="reset()">Poništi filtere</button>
+        </div>
+      }
+    </div>
+  </section>
+</div>
