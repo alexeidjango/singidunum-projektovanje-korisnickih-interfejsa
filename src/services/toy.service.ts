@@ -19,11 +19,10 @@ export class ToyService {
   static async fetchToys() {
     try {
       await axios.get('/toys.json').then((response) => {
-        console.log(response.data);
         localStorage.setItem(ToyService.LOCAL_STORAGE_KEY, JSON.stringify(response.data));
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
       localStorage.setItem(ToyService.LOCAL_STORAGE_KEY, '[]');
     }
   }
@@ -63,13 +62,6 @@ export class ToyService {
 
   static search(q: ToyQuery): ToyModel[] {
     const normalizedSearchText = (q.text || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    console.log(
-      'Searching for Toys',
-      q.text,
-      'Muzička kutija „Zvezdano nebo"' +
-        ' ' +
-        'Muzička kutija koja projektuje zvezde na plafon i svira uspavanke.',
-    );
     return (
       ToyService.getToys()
         .filter(

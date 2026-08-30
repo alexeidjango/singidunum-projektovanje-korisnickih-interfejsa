@@ -61,14 +61,14 @@ export class RegisterModal {
       favoriteTypes: this.favoriteTypes,
       username: v.username,
       password: v.password,
-      // reservations: [],    // TODO: fix this!
+      reservations: [],
     };
     try {
       AuthService.register(user);
       console.log('Nalog je kreiran.'); // TODO: fix this!
       this.modal.resolve();
     } catch {
-      console.log('Korisničko ime je zauzeto.');  // TODO: fix this!
+      console.log('Korisničko ime je zauzeto.'); // TODO: fix this!
     }
   }
 }

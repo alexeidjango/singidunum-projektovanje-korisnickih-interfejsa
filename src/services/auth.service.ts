@@ -10,7 +10,7 @@ const DEFAULT_USER: UserModel = {
   favoriteTypes: [ToyTypeEnum.SLAGALICA, ToyTypeEnum.DRUSTVENA_IGRA],
   username: 'alexei',
   password: '2023203407',
-  // reservations: [],
+  reservations: [],
 };
 
 export class AuthService {

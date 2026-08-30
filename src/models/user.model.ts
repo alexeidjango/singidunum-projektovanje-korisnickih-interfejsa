@@ -1,4 +1,5 @@
-import { ToyType, ToyTypeEnum } from './toy.model';
+import { ToyType } from './toy.model';
+import { ReservationModel } from './reservation.model';
 
 export interface UserModel {
   firstName: string;
@@ -6,8 +7,8 @@ export interface UserModel {
   email: string;
   phone: string;
   address: string;
-  favoriteTypes: ToyTypeEnum[];
+  favoriteTypes: ToyType[];
   username: string;
   password: string;
-  // reservations: // TODO: ADD this
+  reservations: ReservationModel[];
 }
