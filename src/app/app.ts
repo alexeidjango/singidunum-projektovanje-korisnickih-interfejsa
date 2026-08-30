@@ -28,6 +28,7 @@ export class App {
   }
 
   protected cartCount(): number {
+    // TODO: fix cart count after removing an element from cart
     try {
       return CartService.list().filter((r) => r.status !== 'otkazano').length;
     } catch {
