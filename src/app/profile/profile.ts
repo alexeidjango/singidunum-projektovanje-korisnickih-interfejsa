@@ -24,7 +24,7 @@ export class Profile {
     private modal: ModalService,
     protected utils: Utils,
   ) {
-    this.allTypes = utils.toyTypeOptions;
+    this.allTypes = this.utils.getToyTypeOptions();
     if (!AuthService.isLoggedIn()) {
       const returnTo = this.router.url;
       this.modal.openLogin(() => this.router.navigateByUrl(returnTo));

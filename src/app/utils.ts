@@ -24,7 +24,7 @@ export class Utils {
     });
   }
 
-  toyTypeOptions: { value: ToyTypeEnum; label: string }[] = [
+  private toyTypeOptions: { value: ToyTypeEnum; label: string }[] = [
     { value: ToyTypeEnum.SLAGALICA, label: 'Slagalice' },
     { value: ToyTypeEnum.SLIKOVNICA, label: 'Slikovnice' },
     { value: ToyTypeEnum.FIGURA, label: 'Figure' },
@@ -32,4 +32,8 @@ export class Utils {
     { value: ToyTypeEnum.DRUSTVENA_IGRA, label: 'Društvene igre' },
     { value: ToyTypeEnum.KONSTRUKCIJA, label: 'Konstrukcije' },
   ];
+
+  getToyTypeOptions() {
+    return this.toyTypeOptions;
+  }
 }
