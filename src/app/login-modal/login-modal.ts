@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { ModalService } from '../../services/modal.service';
+import { Utils } from '../utils';
 
 @Component({
   selector: 'app-login-modal',
@@ -15,6 +16,7 @@ export class LoginModal {
   constructor(
     private fb: FormBuilder,
     protected modal: ModalService,
+    protected utils: Utils,
   ) {
     this.form = this.fb.group({
       username: ['', Validators.required],
@@ -24,14 +26,14 @@ export class LoginModal {
 
   protected submit(): void {
     if (!this.form.valid) {
-      console.log('Popunite sva polja.'); // TODO: fix, add normal alert
+      this.utils.error('Popunite sva polja.');
       return;
     }
     try {
       AuthService.login(this.form.value.username, this.form.value.password);
       this.modal.resolve();
     } catch {
-      console.log('Pogrešni podaci za prijavu.'); // TODO: fix, add normal alert
+      this.utils.error('Pogrešni podaci za prijavu.');
     }
   }
 }

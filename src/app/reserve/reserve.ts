@@ -42,7 +42,7 @@ export class Reserve {
     const toy = this.toy()!;
     this.utils.confirm('Potvrditi rezervaciju?', () => {
       CartService.add(toy);
-      console.log(`Igračka „${toy.name}" je rezervisana.`); // TODO: fix this!
+      this.utils.toast(`Igračka „${toy.name}" je rezervisana.`);
       this.router.navigateByUrl('/korpa');
     });
   }

@@ -91,4 +91,23 @@ export class Utils {
         ? 'text-bg-success'
         : 'text-bg-danger';
   }
+  toast(text: string): void {
+    Swal.fire({
+      icon: 'success',
+      title: text,
+      timer: 2000,
+      showConfirmButton: false,
+      customClass: this.bs,
+    });
+  }
+
+  error(text: string): void {
+    Swal.fire({
+      icon: 'error',
+      title: 'Greška',
+      text,
+      confirmButtonText: 'Zatvori',
+      customClass: this.bs,
+    });
+  }
 }

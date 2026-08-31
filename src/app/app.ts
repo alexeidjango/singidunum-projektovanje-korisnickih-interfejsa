@@ -32,7 +32,6 @@ export class App {
   protected logout(): void {
     this.utils.confirm('Odjaviti se?', () => {
       AuthService.logout();
-      console.log('Logged out');
       this.router.navigateByUrl('/');
     });
   }

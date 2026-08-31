@@ -46,7 +46,7 @@ export class RateToy {
         return;
       }
       if (r.status !== 'pristiglo' || r.reviewed) {
-        console.error('Ovu igračku nije moguće oceniti.'); // TODO: Fix this!
+        this.utils.error('Ovu igračku nije moguće oceniti.');
         this.router.navigateByUrl('/korpa');
         return;
       }
@@ -60,7 +60,7 @@ export class RateToy {
 
   protected submit(): void {
     if (!this.form.valid) {
-      console.error('Izaberite ocenu (1–5 zvezdica).'); // TODO: Fix this!
+      this.utils.error('Izaberite ocenu (1–5 zvezdica).');
       return;
     }
     const user = AuthService.getActiveUser();
@@ -70,7 +70,7 @@ export class RateToy {
       comment: this.form.value.comment ?? '',
       createdAt: new Date().toISOString(),
     });
-    console.log('Hvala na oceni.'); // TODO: Fix this!
+    this.utils.toast('Hvala na oceni.');
     this.router.navigateByUrl('/korpa');
   }
 }

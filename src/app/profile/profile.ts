@@ -60,31 +60,31 @@ export class Profile {
 
   protected saveProfile(): void {
     if (!this.profileForm.valid) {
-      console.error('Neispravni podaci profila.');  // TODO: fix this
+      this.utils.error('Neispravni podaci profila.');
       return;
     }
     this.utils.confirm('Sačuvati izmene profila?', () => {
       AuthService.updateProfile({ ...this.profileForm.value, favoriteTypes: this.favoriteTypes });
-      console.log('Podaci su sačuvani.'); // TODO: fix this
+      this.utils.toast('Podaci su sačuvani.');
     });
   }
 
   protected savePassword(): void {
     if (!this.passwordForm.valid) {
-      console.error('Popunite sva polja za lozinku.'); // TODO: fix this
+      this.utils.error('Popunite sva polja za lozinku.');
       return;
     }
     const { current, next, repeat } = this.passwordForm.value;
     if (next !== repeat) {
-      console.error('Nove lozinke se ne poklapaju.'); // TODO: fix this
+      this.utils.error('Nove lozinke se ne poklapaju.');
       return;
     }
     try {
       AuthService.updatePassword(current, next);
-      console.log('Lozinka je promenjena.'); // TODO: fix this
+      this.utils.toast('Lozinka je promenjena.');
       this.passwordForm.reset();
     } catch {
-      console.error('Pogrešna trenutna lozinka.'); // TODO: fix this
+      this.utils.error('Pogrešna trenutna lozinka.');
     }
   }
 }

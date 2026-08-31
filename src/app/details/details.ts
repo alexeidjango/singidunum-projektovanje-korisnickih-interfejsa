@@ -31,7 +31,7 @@ export class Details {
         this.alreadyReserved.set(CartService.isAlreadyReservedForActiveUser(params.id));
         this.computeReviewable(toy.id);
       } catch {
-        console.error('toy not found');
+        this.utils.error('Igracka nije pronadjena.');
         this.router.navigateByUrl('/'); // bad id → go home
       }
     });

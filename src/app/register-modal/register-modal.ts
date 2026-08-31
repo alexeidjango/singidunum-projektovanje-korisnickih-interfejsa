@@ -44,11 +44,11 @@ export class RegisterModal {
 
   protected submit(): void {
     if (!this.form.valid) {
-      console.error('Popunite sva obavezna polja ispravno.');
+      this.utils.error('Popunite sva obavezna polja ispravno.');
       return;
     }
     if (this.form.value.password !== this.form.value.repeat) {
-      console.error('Lozinke se ne poklapaju.');
+      this.utils.error('Lozinke se ne poklapaju.');
       return;
     }
     const v = this.form.value;
@@ -65,10 +65,10 @@ export class RegisterModal {
     };
     try {
       AuthService.register(user);
-      console.log('Nalog je kreiran.'); // TODO: fix this!
+      this.utils.toast('Nalog je kreiran.');
       this.modal.resolve();
     } catch {
-      console.log('Korisničko ime je zauzeto.'); // TODO: fix this!
+      this.utils.error('Korisničko ime je zauzeto.');
     }
   }
 }
