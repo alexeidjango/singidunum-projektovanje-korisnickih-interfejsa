@@ -111,7 +111,7 @@
             <div class="card-footer bg-transparent d-flex gap-2">
               <a [routerLink]="['/igracka', toy.id]" class="btn btn-outline-primary btn-sm w-100">Detalji</a>
               @if(toy.isAlreadyReserved){
-                <button class="btn btn-secondary btn-sm w-100" [disabled]="true">U Korpi</button>
+                <a class="btn btn-outline-secondary btn-sm w-100" [routerLink]="['/korpa']">U Korpi</a>
               }
               @else {
                 <button class="btn btn-primary btn-sm w-100" (click)="reserve(toy)">Rezerviši</button>
