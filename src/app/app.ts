@@ -27,20 +27,13 @@ export class App {
     return AuthService.isLoggedIn() ? AuthService.getActiveUser().username : '';
   }
 
-  protected cartCount(): number {
-    // TODO: fix cart count after removing an element from cart
-    try {
-      return CartService.list().filter((r) => r.status !== 'otkazano').length;
-    } catch {
-      return 0;
-    }
-  }
+  protected readonly cartCount = CartService.count;
 
   protected logout(): void {
     this.utils.confirm('Odjaviti se?', () => {
       AuthService.logout();
       console.log('Logged out');
-      this.router.navigateByUrl('/'); // TODO: fix actual state change after logout
+      this.router.navigateByUrl('/');
     });
   }
 }

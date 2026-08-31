@@ -1,3 +1,4 @@
+import { signal } from '@angular/core';
 import { UserModel } from '../models/user.model';
 import { ToyTypeEnum } from '../models/toy.model';
 
@@ -17,6 +18,10 @@ export class AuthService {
   static LOCAL_USERS_KEY = 'ls_users';
   static LOCAL_ACTIVE_USER_KEY = 'ls_active_user';
 
+  // literally just to bump the state to force redraw - I don't know a better solution in Angular :(
+  private static readonly revision = signal(0);
+  static readonly changed = AuthService.revision.asReadonly();
+
   static getUsers(): UserModel[] {
     if (!localStorage.getItem(AuthService.LOCAL_USERS_KEY)) {
       localStorage.setItem(AuthService.LOCAL_USERS_KEY, JSON.stringify([DEFAULT_USER]));
@@ -26,9 +31,11 @@ export class AuthService {
 
   static saveUsers(users: UserModel[]): void {
     localStorage.setItem(AuthService.LOCAL_USERS_KEY, JSON.stringify(users));
+    AuthService.revision.update((v) => v + 1);
   }
 
   static isLoggedIn(): boolean {
+    AuthService.revision();
     return !!localStorage.getItem(AuthService.LOCAL_ACTIVE_USER_KEY);
   }
   static findByUsername(username: string): UserModel {
@@ -38,6 +45,7 @@ export class AuthService {
   }
 
   static getActiveUser(): UserModel {
+    AuthService.revision();
     const username = localStorage.getItem(AuthService.LOCAL_ACTIVE_USER_KEY);
     if (!username) throw new Error('NO_ACTIVE_USER');
     return AuthService.findByUsername(username);
@@ -47,6 +55,7 @@ export class AuthService {
     const user = AuthService.findByUsername(username);
     if (user.password !== password) throw new Error('BAD_CREDENTIALS');
     localStorage.setItem(AuthService.LOCAL_ACTIVE_USER_KEY, user.username);
+    AuthService.revision.update((v) => v + 1);
   }
 
   static register(payload: UserModel): void {
@@ -57,10 +66,12 @@ export class AuthService {
     users.push({ ...payload /*, reservations: []*/ });
     AuthService.saveUsers(users);
     localStorage.setItem(AuthService.LOCAL_ACTIVE_USER_KEY, payload.username); // auto-login
+    AuthService.revision.update((v) => v + 1);
   }
 
   static logout(): void {
     localStorage.removeItem(AuthService.LOCAL_ACTIVE_USER_KEY);
+    AuthService.revision.update((v) => v + 1);
   }
 
   static updateProfile(patch: Partial<UserModel>): void {

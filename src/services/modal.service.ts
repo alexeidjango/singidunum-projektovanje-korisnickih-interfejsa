@@ -24,7 +24,6 @@ export class ModalService {
     this.register.set(false);
   }
 
-  /** Call this after a successful login or registration. */
   resolve(): void {
     const callback = this.afterAuth;
     this.afterAuth = null;

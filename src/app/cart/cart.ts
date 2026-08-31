@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ReservationModel } from '../../models/reservation.model';
 import { AuthService } from '../../services/auth.service';
@@ -13,7 +13,14 @@ import { ModalService } from '../../services/modal.service';
   styleUrl: './cart.css',
 })
 export class Cart {
-  protected rows = signal<ReservationModel[]>([]);
+  protected readonly rows = computed<ReservationModel[]>(() => {
+    CartService.changed();
+    try {
+      return CartService.list();
+    } catch {
+      return [];
+    }
+  });
 
   constructor(
     private router: Router,
@@ -24,13 +31,7 @@ export class Cart {
       const returnTo = this.router.url;
       this.modal.openLogin(() => this.router.navigateByUrl(returnTo));
       this.router.navigateByUrl('/');
-      return;
     }
-    this.load();
-  }
-
-  private load(): void {
-    this.rows.set(CartService.list());
   }
 
   protected total(): number {
@@ -44,13 +45,11 @@ export class Cart {
   protected remove(r: ReservationModel): void {
     this.utils.confirm(`Ukloniti „${r.toy.name}" iz korpe?`, () => {
       CartService.remove(r.id);
-      this.load();
     });
   }
 
-  /** Dev helper: pretend the toy arrived. */
+  // Dev helper: pretend the toy arrived.
   protected deliver(r: ReservationModel): void {
     CartService.setStatus(r.id, 'pristiglo');
-    this.load();
   }
 }

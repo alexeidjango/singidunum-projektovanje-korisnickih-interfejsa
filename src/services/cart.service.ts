@@ -1,9 +1,14 @@
+import { computed, signal } from '@angular/core';
 import { AuthService } from './auth.service';
 import { ToyService } from './toy.service';
 import { ToyModel, ReviewModel } from '../models/toy.model';
 import { ReservationModel, ReservationStatus } from '../models/reservation.model';
 
 export class CartService {
+  // literally just to bump the state to force redraw - I don't know a better solution in Angular :(
+  private static readonly revision = signal(0);
+  static readonly changed = CartService.revision.asReadonly();
+
   static list(): ReservationModel[] {
     return AuthService.getActiveUser().reservations;
   }
@@ -15,7 +20,17 @@ export class CartService {
       if (u.username === active.username) change(u.reservations);
     });
     AuthService.saveUsers(users);
+    CartService.revision.update((v) => v + 1);
   }
+
+  static readonly count = computed(() => {
+    CartService.revision();
+    try {
+      return CartService.list().filter((r) => r.status !== 'otkazano').length;
+    } catch {
+      return 0;
+    }
+  });
 
   static add(toy: ToyModel): void {
     this.mutate((reservations) => {
