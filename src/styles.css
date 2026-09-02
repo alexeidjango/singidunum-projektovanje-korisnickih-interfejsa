@@ -1,3 +1,102 @@
 input.ng-invalid {
   border: 1px solid #a94442;
 }
+
+/* AM: pink theme - it's a toy shop anyway! Obviously, not manually - generated
+   it with https://bootstrap.build/, then extracted the essentials. 
+*/
+
+[data-bs-theme='pink'] {
+  color-scheme: light;
+
+  --bs-body-bg: #fff5f8;
+  --bs-body-bg-rgb: 255, 245, 248;
+  --bs-body-color: #4a2c38;
+  --bs-body-color-rgb: 74, 44, 56;
+  --bs-emphasis-color: #2e1a22;
+  --bs-emphasis-color-rgb: 46, 26, 34;
+  --bs-heading-color: #8c1c43;
+
+  --bs-secondary-color: rgba(74, 44, 56, 0.7);
+  --bs-secondary-color-rgb: 74, 44, 56;
+  --bs-secondary-bg: #ffe3ec;
+  --bs-secondary-bg-rgb: 255, 227, 236;
+  --bs-tertiary-color: rgba(74, 44, 56, 0.5);
+  --bs-tertiary-color-rgb: 74, 44, 56;
+  --bs-tertiary-bg: #ffeaf1;
+  --bs-tertiary-bg-rgb: 255, 234, 241;
+
+  --bs-border-color: #f5cad9;
+  --bs-border-color-translucent: rgba(74, 44, 56, 0.15);
+
+  --bs-primary: #d6336c;
+  --bs-primary-rgb: 214, 51, 108;
+  --bs-primary-text-emphasis: #8c1c43;
+  --bs-primary-bg-subtle: #ffdeeb;
+  --bs-primary-border-subtle: #f7a8c4;
+
+  --bs-link-color: #c2255c;
+  --bs-link-color-rgb: 194, 37, 92;
+  --bs-link-hover-color: #a61e4d;
+  --bs-link-hover-color-rgb: 166, 30, 77;
+
+  --bs-focus-ring-color: rgba(214, 51, 108, 0.25);
+
+  --surface-bg: #fff0f5;
+}
+
+[data-bs-theme='pink'] .card {
+  --bs-card-bg: var(--surface-bg);
+}
+
+[data-bs-theme='pink'] .modal-content {
+  --bs-modal-bg: var(--surface-bg);
+}
+
+[data-bs-theme='pink'] .dropdown-menu {
+  --bs-dropdown-bg: var(--surface-bg);
+}
+
+[data-bs-theme='pink'] .list-group {
+  --bs-list-group-bg: var(--surface-bg);
+}
+
+[data-bs-theme='pink'] .btn-primary {
+  --bs-btn-bg: #d6336c;
+  --bs-btn-border-color: #d6336c;
+  --bs-btn-hover-bg: #b02455;
+  --bs-btn-hover-border-color: #a61e4d;
+  --bs-btn-active-bg: #a61e4d;
+  --bs-btn-active-border-color: #93153f;
+  --bs-btn-disabled-bg: #d6336c;
+  --bs-btn-disabled-border-color: #d6336c;
+  --bs-btn-focus-shadow-rgb: 214, 51, 108;
+}
+
+[data-bs-theme='pink'] .btn-outline-primary {
+  --bs-btn-color: #c2255c;
+  --bs-btn-border-color: #d6336c;
+  --bs-btn-hover-bg: #d6336c;
+  --bs-btn-hover-border-color: #d6336c;
+  --bs-btn-active-bg: #c2255c;
+  --bs-btn-active-border-color: #c2255c;
+  --bs-btn-disabled-color: #c2255c;
+  --bs-btn-disabled-border-color: #d6336c;
+  --bs-btn-focus-shadow-rgb: 214, 51, 108;
+}
+
+[data-bs-theme='pink'] .form-control:focus,
+[data-bs-theme='pink'] .form-select:focus,
+[data-bs-theme='pink'] .form-check-input:focus {
+  border-color: #f7a8c4;
+  box-shadow: 0 0 0 0.25rem rgba(214, 51, 108, 0.25);
+}
+
+[data-bs-theme='pink'] .form-check-input:checked {
+  background-color: #d6336c;
+  border-color: #d6336c;
+}
+
+[data-bs-theme='pink'] .nav-link:focus-visible {
+  box-shadow: 0 0 0 0.25rem rgba(214, 51, 108, 0.25);
+}
