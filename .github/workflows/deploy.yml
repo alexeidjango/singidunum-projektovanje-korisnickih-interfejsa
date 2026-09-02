@@ -19,10 +19,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # Angular 22's CLI requires Node >= 22.
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: npm
@@ -34,13 +34,14 @@ jobs:
 
       # GitHub Pages has no SPA rewrite: serving index.html as 404.html makes
       # deep links like /igracka/5 survive a refresh.
-      - name: Add SPA fallback and disable Jekyll
+      # (No .nojekyll needed - Jekyll doesn't run with the GitHub Actions source,
+      # and upload-pages-artifact strips dotfiles from the tarball anyway.)
+      - name: Add SPA fallback
         run: |
           cp dist/toy-shop-2023203407/browser/index.html \
              dist/toy-shop-2023203407/browser/404.html
-          touch dist/toy-shop-2023203407/browser/.nojekyll
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist/toy-shop-2023203407/browser
 
@@ -51,5 +52,5 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/deploy-pages@v3
+      - uses: actions/deploy-pages@v5
         id: deployment
