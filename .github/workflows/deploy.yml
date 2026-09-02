@@ -1,0 +1,55 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a newer push cancel an in-flight deploy, but never interrupt one mid-publish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Angular 22's CLI requires Node >= 22.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # The app is served from a repo subpath, so <base href> must match the repo name.
+      - run: npm run build -- --base-href /singidunum-projektovanje-korisnickih-interfejsa/
+
+      # GitHub Pages has no SPA rewrite: serving index.html as 404.html makes
+      # deep links like /igracka/5 survive a refresh.
+      - name: Add SPA fallback and disable Jekyll
+        run: |
+          cp dist/toy-shop-2023203407/browser/index.html \
+             dist/toy-shop-2023203407/browser/404.html
+          touch dist/toy-shop-2023203407/browser/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/toy-shop-2023203407/browser
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v3
+        id: deployment
