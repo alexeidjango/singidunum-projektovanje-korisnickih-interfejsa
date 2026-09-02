@@ -1,6 +1,9 @@
-# Opis projekta
+# Opis projekta 
+##### (Alexey Melnikov, 2023203407)
 
-Digitalna prodavnica igračaka (Angular 22 + Bootstrap 5.3). Pokretanje: `npm start` → <http://localhost:4200>.
+Digitalna prodavnica igračaka (Angular 22 + Bootstrap 5.3). 
+
+Site URL: https://alexeidjango.github.io/singidunum-projektovanje-korisnickih-interfejsa/
 
 ---
 
