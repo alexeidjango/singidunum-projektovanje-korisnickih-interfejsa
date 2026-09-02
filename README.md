@@ -2,8 +2,6 @@
 
 Digitalna prodavnica igračaka (Angular 22 + Bootstrap 5.3). Pokretanje: `npm start` → <http://localhost:4200>.
 
-Jedan prikaz interfejsa po stranici, sa opisom funkcije ispod slike.
-
 ---
 
 ## 1. Katalog igračaka (`/`)
