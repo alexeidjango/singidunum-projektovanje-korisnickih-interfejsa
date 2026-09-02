@@ -1,59 +1,85 @@
-# ToyShop2023203407
+# Opis projekta
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.6.
+Digitalna prodavnica igračaka (Angular 22 + Bootstrap 5.3). Pokretanje: `npm start` → <http://localhost:4200>.
 
-## Development server
+Jedan prikaz interfejsa po stranici, sa opisom funkcije ispod slike.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 1. Katalog igračaka (`/`)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+![Katalog igračaka](screenshots/01-katalog.png)
 
-## Code scaffolding
+**Funkcija: Pretraga igračaka.** Kao kriterijumi pretrage koriste se naziv, tip, uzrast, ciljna grupa, datum proizvodnje, cena i minimalna ocena, uz sortiranje rezultata.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## 2. Katalog — primenjeni filteri (`/`)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+![Katalog sa primenjenim filterom](screenshots/02-katalog-filter.png)
 
-```bash
-ng generate --help
-```
+**Funkcija: Sužavanje ponude po kriterijumima.** Prikazuju se samo igračke koje odgovaraju izabranim kriterijumima (ovde ciljna grupa „Dečak"), uz broj pronađenih igračaka.
 
-## Building
+---
 
-To build the project run:
+## 3. Detalji igračke (`/igracka/:id`)
 
-```bash
-ng build
-```
+![Detalji igračke](screenshots/03-detalji.png)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+**Funkcija: Prikaz podataka o igrački i recenzija kupaca.** Prikazuju se tip, uzrast, ciljna grupa, datum proizvodnje, opis, cena, prosečna ocena i recenzije; odavde se pokreće rezervacija.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## 4. Prijava (modalni dijalog)
 
-```bash
-ng test
-```
+![Prijava](screenshots/04-prijava.png)
 
-## Running end-to-end tests
+**Funkcija: Prijava kupca.** Korisničko ime i lozinka daju pristup rezervaciji, korpi i profilu.
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
+## 5. Registracija (modalni dijalog)
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+![Registracija](screenshots/05-registracija.png)
 
-## Additional Resources
+**Funkcija: Registracija novog kupca.** Unose se ime, prezime, email, telefon, adresa, omiljene vrste igračaka i pristupni podaci.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## 6. Korisnički profil (`/profil`)
+
+![Moj profil](screenshots/06-profil.png)
+
+**Funkcija: Izmena podataka kupca i lozinke.** Menjaju se lični podaci i omiljene vrste igračaka, a lozinka se menja uz potvrdu trenutne.
+
+---
+
+## 7. Rezervacija igračke (`/rezervacija/:id`)
+
+![Rezervacija igračke](screenshots/07-rezervacija.png)
+
+**Funkcija: Rezervacija igračke.** Potvrdom podataka izabrana igračka se dodaje u korpu u statusu „rezervisano".
+
+---
+
+## 8. Korpa rezervacija (`/korpa`)
+
+![Korpa rezervacija](screenshots/08-korpa.png)
+
+**Funkcija: Pregled rezervacija kupca.** Prikazuju se naziv, tip, datum proizvodnje, status i cena svake rezervacije, sa ukupnom cenom i brisanjem stavke.
+
+---
+
+## 9. Korpa — pristigla igračka (`/korpa`)
+
+![Korpa sa pristiglom igračkom](screenshots/09-korpa-pristiglo.png)
+
+**Funkcija: Praćenje statusa rezervacije.** Kada igračka pristigne, status se menja na „pristiglo" i otvara se ocenjivanje.
+
+---
+
+## 10. Ocena i recenzija igračke (`/korpa/ocena/:id`)
+
+![Ocena igračke](screenshots/10-ocena.png)
+
+**Funkcija: Ocena i recenzija igračke.** Za pristiglu igračku kupac daje ocenu od 1 do 5 zvezdica i opcioni komentar, koji se prikazuje na strani detalja.
