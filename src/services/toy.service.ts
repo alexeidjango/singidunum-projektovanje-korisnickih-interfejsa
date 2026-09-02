@@ -22,7 +22,7 @@ export class ToyService {
       return;
     }
     try {
-      await axios.get('/toys.json').then((response) => {
+      await axios.get('toys.json').then((response) => {
         localStorage.setItem(ToyService.LOCAL_STORAGE_KEY, JSON.stringify(response.data));
       });
     } catch (error) {

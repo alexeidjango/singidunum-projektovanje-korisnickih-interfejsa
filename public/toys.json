@@ -8,7 +8,7 @@
     "targetGroup": "svi",
     "productionDate": "2025-03-12",
     "price": 1290,
-    "imageUrl": "/img/pki-slagalica-zivotinje.jpg",
+    "imageUrl": "img/pki-slagalica-zivotinje.jpg",
     "reviews": [
       {
         "author": "Marija J.",
@@ -33,7 +33,7 @@
     "targetGroup": "svi",
     "productionDate": "2025-01-05",
     "price": 890,
-    "imageUrl": "/img/pki-prva-citanka.jpg",
+    "imageUrl": "img/pki-prva-citanka.jpg",
     "reviews": [
       {
         "author": "Sanja P.",
@@ -58,7 +58,7 @@
     "targetGroup": "decak",
     "productionDate": "2024-11-20",
     "price": 1750,
-    "imageUrl": "/img/pki-figura-kapetan-zvezda.jpg",
+    "imageUrl": "img/pki-figura-kapetan-zvezda.jpg",
     "reviews": [
       {
         "author": "Petar M.",
@@ -83,7 +83,7 @@
     "targetGroup": "svi",
     "productionDate": "2025-02-01",
     "price": 1490,
-    "imageUrl": "/img/pki-meda-bibi.jpeg",
+    "imageUrl": "img/pki-meda-bibi.jpeg",
     "reviews": [
       {
         "author": "Jelena K.",
@@ -108,7 +108,7 @@
     "targetGroup": "svi",
     "productionDate": "2025-04-18",
     "price": 2990,
-    "imageUrl": "/img/pki-mali-naucnik.jpg",
+    "imageUrl": "img/pki-mali-naucnik.jpg",
     "reviews": [
       {
         "author": "Ivan T.",
@@ -133,7 +133,7 @@
     "targetGroup": "svi",
     "productionDate": "2024-09-30",
     "price": 2190,
-    "imageUrl": "/img/pki-trka-kroz-svemir.jpg",
+    "imageUrl": "img/pki-trka-kroz-svemir.jpg",
     "reviews": [
       {
         "author": "Porodica Kovač",
@@ -158,7 +158,7 @@
     "targetGroup": "svi",
     "productionDate": "2025-05-10",
     "price": 3490,
-    "imageUrl": "/img/pki-kocke-grad.jpg",
+    "imageUrl": "img/pki-kocke-grad.jpg",
     "reviews": [
       {
         "author": "Marko V.",
@@ -183,7 +183,7 @@
     "targetGroup": "devojcica",
     "productionDate": "2024-12-15",
     "price": 1690,
-    "imageUrl": "/img/pki-lutka-mila.jpg",
+    "imageUrl": "img/pki-lutka-mila.jpg",
     "reviews": [
       {
         "author": "Dragana S.",
@@ -208,7 +208,7 @@
     "targetGroup": "svi",
     "productionDate": "2025-03-22",
     "price": 990,
-    "imageUrl": "/img/pki-puzzle-mapa-sveta.webp",
+    "imageUrl": "img/pki-puzzle-mapa-sveta.webp",
     "reviews": [
       {
         "author": "Bojan I.",
@@ -233,7 +233,7 @@
     "targetGroup": "svi",
     "productionDate": "2024-10-08",
     "price": 950,
-    "imageUrl": "/img/pki-bajke-sa-sela.avif",
+    "imageUrl": "img/pki-bajke-sa-sela.avif",
     "reviews": [
       {
         "author": "Vesna M.",
@@ -258,7 +258,7 @@
     "targetGroup": "decak",
     "productionDate": "2025-06-01",
     "price": 1890,
-    "imageUrl": "/img/pki-robot-iks.jpeg",
+    "imageUrl": "img/pki-robot-iks.jpeg",
     "reviews": [
       {
         "author": "Aleksandar P.",
@@ -283,7 +283,7 @@
     "targetGroup": "devojcica",
     "productionDate": "2025-01-28",
     "price": 2290,
-    "imageUrl": "/img/pki-zvezdano-nebo.webp",
+    "imageUrl": "img/pki-zvezdano-nebo.webp",
     "reviews": [
       {
         "author": "Milena J.",
