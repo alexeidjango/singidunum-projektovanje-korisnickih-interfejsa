@@ -40,10 +40,8 @@ export class Reserve {
 
   protected confirm(): void {
     const toy = this.toy()!;
-    this.utils.confirm('Potvrditi rezervaciju?', () => {
-      CartService.add(toy);
-      this.utils.toast(`Igračka „${toy.name}" je rezervisana.`);
-      this.router.navigateByUrl('/korpa');
-    });
+    CartService.add(toy);
+    this.utils.toast(`Igračka „${toy.name}" je rezervisana.`);
+    this.router.navigateByUrl('/korpa');
   }
 }
